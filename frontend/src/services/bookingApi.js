@@ -1,0 +1,3 @@
+const API_URL = import.meta.env.VITE_API_URL
+export async function createBooking(payload){ const r=await fetch(`${API_URL}/api/bookings`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); if(!r.ok) throw new Error((await r.text())||'Randevu oluşturulamadı.'); return r.json() }
+export async function getBookedTimes(specialistId,appointmentDate){ const q=new URLSearchParams({specialistId:String(specialistId),appointmentDate}); const r=await fetch(`${API_URL}/api/bookings/booked-times?${q}`); if(!r.ok) throw new Error('Dolu saatler alınamadı.'); return r.json() }

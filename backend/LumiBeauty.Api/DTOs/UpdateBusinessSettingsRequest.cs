@@ -1,0 +1,1 @@
+namespace LumiBeauty.Api.DTOs; public class UpdateBusinessSettingsRequest { public TimeOnly OpeningTime{get;set;} public TimeOnly LastAppointmentTime{get;set;} public int SlotIntervalMinutes{get;set;} }

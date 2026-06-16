@@ -1,0 +1,1 @@
+namespace LumiBeauty.Api.Models; public class BusinessSettings { public int Id{get;set;} public TimeOnly OpeningTime{get;set;}=new(9,0); public TimeOnly LastAppointmentTime{get;set;}=new(20,0); public int SlotIntervalMinutes{get;set;}=60; }

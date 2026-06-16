@@ -1,0 +1,4 @@
+import { useEffect,useState } from 'react'
+import { getSpecialists } from '../services/specialistApi'
+import SpecialistCard from './SpecialistCard'
+export default function SpecialistList({selectedService,selectedSpecialist,onSelectSpecialist}){const[list,setList]=useState([]),[error,setError]=useState('');useEffect(()=>{getSpecialists(selectedService?.category).then(setList).catch(()=>setError('Uzmanlar yüklenemedi.'))},[selectedService?.category]);return <section className="selection-section selection-section--narrow"><h2>Uzmanınızı Seçin</h2><p>Seçtiğiniz hizmet için uygun uzmanlardan birini belirleyin.</p>{error&&<p className="error-box">{error}</p>}<div className="selection-grid">{list.map(x=><SpecialistCard key={x.id} specialist={x} selected={selectedSpecialist?.id===x.id} onSelect={onSelectSpecialist}/>)}</div></section>}
